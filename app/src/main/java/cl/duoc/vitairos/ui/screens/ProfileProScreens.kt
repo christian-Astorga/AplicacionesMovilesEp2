@@ -45,12 +45,12 @@ fun ProfileScreen(nav: NavHostController, auth: AuthViewModel) {
     var aliasErr by remember { mutableStateOf<String?>(null) }
     var pendingPath by rememberSaveable { mutableStateOf<String?>(null) }
 
-    // Recurso nativo 1: cámara (TakePicture + FileProvider; la app de cámara del sistema gestiona su permiso)
+
     val camera = rememberLauncherForActivityResult(ActivityResultContracts.TakePicture()) { ok ->
         val p = pendingPath
         if (ok && p != null) auth.updateUser { it.copy(avatarPath = p) } else if (p != null) File(p).delete()
     }
-    // Recurso nativo 2: galería (GetContent; se copia a almacenamiento interno para que persista)
+
     val gallery = rememberLauncherForActivityResult(ActivityResultContracts.GetContent()) { uri ->
         if (uri != null) copyToInternal(ctx, uri)?.let { path -> auth.updateUser { it.copy(avatarPath = path) } }
     }
@@ -85,7 +85,7 @@ fun ProfileScreen(nav: NavHostController, auth: AuthViewModel) {
     }
 }
 
-// Vista demostrativa del perfil profesional: solo contexto que la persona autorizó asociar a la cita.
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ProHomeScreen(nav: NavHostController, auth: AuthViewModel) {

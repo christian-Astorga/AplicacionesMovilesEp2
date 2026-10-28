@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
 
 data class Ficha(val alias: String, val appointment: AppointmentEntity, val checkIns: List<CheckInEntity>)
 
-// Vista demostrativa del profesional: solo ve lo que el usuario autorizó asociar a la cita.
+
 class ProViewModel(app: Application) : AndroidViewModel(app) {
     private val repo = (app as VitairosApp).repo
     val shared = repo.observeSharedAppointments().stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())

@@ -3,7 +3,7 @@
 
     <uses-feature android:name="android.hardware.camera" android:required="false" />
 
-    <!-- Conserva los atributos icon/roundIcon/theme que generó tu plantilla; agrega android:name -->
+
     <application
         android:name="cl.duoc.vitairos.VitairosApp"
         android:allowBackup="true"

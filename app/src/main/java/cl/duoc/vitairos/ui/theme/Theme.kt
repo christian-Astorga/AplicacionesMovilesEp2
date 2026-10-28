@@ -8,7 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 
-// Paleta del Manual de Identidad Visual v3.0 (valores del CSS vigente del sitio).
+
 object Brand {
     val Navy = Color(0xFF000E2E); val SlateBlue = Color(0xFF536477)
     val Green = Color(0xFF00C98E); val Cyan = Color(0xFF00B9D3); val Blue = Color(0xFF00A5F4)

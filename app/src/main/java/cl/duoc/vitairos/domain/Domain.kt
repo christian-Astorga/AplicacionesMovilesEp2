@@ -23,7 +23,7 @@ object Status {
 fun normalize(s: String): String =
     Normalizer.normalize(s.lowercase(), Normalizer.Form.NFD).replace(Regex("\\p{M}"), "")
 
-// Protocolo de crisis: coincidencia por palabras críticas (árbol determinístico, sin LLM).
+// Protocolo de crisis:
 object CrisisDetector {
     private val terms = listOf(
         "suicid", "quitarme la vida", "no quiero vivir", "matarme", "hacerme dano",

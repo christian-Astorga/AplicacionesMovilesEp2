@@ -14,7 +14,7 @@ import java.util.Locale
 fun Long.toLocalDate(): LocalDate = Instant.ofEpochMilli(this).atZone(ZoneId.systemDefault()).toLocalDate()
 fun Long.formatDateTime(): String = SimpleDateFormat("EEE d MMM, HH:mm", Locale("es", "CL")).format(java.util.Date(this))
 
-// Racha positiva: días consecutivos con registro (hoy o hasta ayer).
+// Racha positiva: días consecutivos con registro
 fun streak(days: Set<LocalDate>): Int {
     var d = LocalDate.now()
     if (d !in days) d = d.minusDays(1)
@@ -23,7 +23,7 @@ fun streak(days: Set<LocalDate>): Int {
     return n
 }
 
-// Bloques horarios ficticios de los próximos 3 días.
+// Bloques horarios ficticios de los próximos 3 días
 fun fakeSlots(): List<String> {
     val f = DateTimeFormatter.ofPattern("EEE d MMM · HH:mm", Locale("es", "CL"))
     return (1..3).flatMap { d -> listOf(10, 15, 18).map { h -> LocalDate.now().plusDays(d.toLong()).atTime(h, 0).format(f) } }

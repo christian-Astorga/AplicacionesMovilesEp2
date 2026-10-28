@@ -69,7 +69,7 @@ fun NavHostController.goTab(route: String) = navigate(route) {
     restoreState = true
 }
 
-// Scaffold común: acceso permanente a "Necesito ayuda ahora" + barra inferior en pestañas principales.
+// acceso permanente a Necesito ayuda ahora y barra inferior en pestañas principales.
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainScaffold(nav: NavHostController, title: String, tab: Boolean = true, content: @Composable (PaddingValues) -> Unit) {

@@ -38,7 +38,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
 
-// Botón principal con gradiente de marca (verde → cian → azul), texto navy para mantener contraste.
+// Botón principal con gradiente de marca
 @Composable
 fun GradientButton(text: String, onClick: () -> Unit, modifier: Modifier = Modifier, enabled: Boolean = true) {
     val fill: Brush = if (enabled) Brush.horizontalGradient(listOf(Brand.Green, Brand.Cyan, Brand.Blue)) else SolidColor(Color(0xFFD5DEE5))
@@ -49,7 +49,7 @@ fun GradientButton(text: String, onClick: () -> Unit, modifier: Modifier = Modif
     ) { Text(text, color = Brand.Navy, fontWeight = FontWeight.SemiBold) }
 }
 
-// Campo con ícono, error visual (ícono + texto) y ayuda.
+// Campo con ícono, error visual
 @Composable
 fun VField(
     value: String, onChange: (String) -> Unit, label: String, error: String? = null, leading: ImageVector? = null,
@@ -79,7 +79,7 @@ fun ConfirmDialog(title: String, message: String, onConfirm: () -> Unit, onCance
     )
 }
 
-// Tarjeta "Tu próximo paso": una sola acción principal + por qué + botón directo.
+// Tarjeta "Tu próximo paso":
 @Composable
 fun NextStepCard(step: NextStep, onGo: () -> Unit, onSave: (() -> Unit)? = null, modifier: Modifier = Modifier) {
     Card(modifier = modifier.fillMaxWidth(), colors = CardDefaults.cardColors(containerColor = Brand.SoftBlue)) {

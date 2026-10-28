@@ -19,7 +19,7 @@ import cl.duoc.vitairos.ui.components.GradientButton
 import cl.duoc.vitairos.ui.theme.Brand
 import kotlinx.coroutines.delay
 
-// Actividad breve de bajo riesgo: respiración guiada de 60 s con temporizador y círculo animado.
+
 @Composable
 fun PauseScreen(nav: NavHostController) {
     val total = 60

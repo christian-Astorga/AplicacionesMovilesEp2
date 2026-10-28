@@ -45,7 +45,7 @@ fun CheckInScreen(nav: NavHostController, editId: Int) {
     val s by vm.ui.collectAsStateWithLifecycle()
     LaunchedEffect(editId) { vm.load(editId) }
 
-    // Señal crítica detectada en la nota: se interrumpe el flujo y se abre el protocolo de ayuda urgente.
+
     LaunchedEffect(s.saved, s.critical) {
         if (s.saved && s.critical) nav.navigate("urgent?crisis=true") { popUpTo("home") }
     }

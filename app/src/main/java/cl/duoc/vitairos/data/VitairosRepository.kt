@@ -5,15 +5,15 @@ import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import java.security.MessageDigest
 
-// Única fuente de datos. Hoy: Room local. Mañana: se puede agregar un data source remoto (API REST) aquí
-// sin tocar ViewModels ni pantallas.
+// Única fuente de datos. Hoy: Room local
+
 class VitairosRepository(private val db: AppDatabase) {
     private val mutex = Mutex()
 
     fun hash(s: String): String =
         MessageDigest.getInstance("SHA-256").digest(s.toByteArray()).joinToString("") { "%02x".format(it) }
 
-    // Datos 100 % ficticios (requisito del caso).
+
     suspend fun seed() = mutex.withLock {
         if (db.professionalDao().count() == 0) {
             db.professionalDao().insertAll(
